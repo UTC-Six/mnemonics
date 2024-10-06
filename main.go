@@ -26,9 +26,9 @@ func main() {
 		fmt.Printf("生成的助记词数量为:%d, 助记词为:%v \n", len(words), words)
 		fmt.Println(err)
 	}*/
-	/*words := gen30Words()
-	fmt.Printf("选取的 %d 个单词是：%v", len(words), words)*/
-	TestRemoveDuplicates()
+	words := gen30Words()
+	fmt.Printf("选取的 %d 个单词是：%v", len(words), words)
+	// testRemoveDuplicates()
 }
 
 func generateMnemonicWords(count int) ([]string, error) {
@@ -92,7 +92,7 @@ func removeDuplicates(strs []string) []string {
 	return result
 }
 
-func TestRemoveDuplicates() {
+func testRemoveDuplicates() {
 	mnemonics := []string{"edge", "now", "blur", "luggage", "motor", "wire", "pistol", "camera", "pole", "piece", "genuine", "decorate", "happy", "liberty", "estate", "achieve", "motor", "pistol", "piece", "happy", "estate"}
 	fmt.Printf("remove 前 size=%d, mnemonics=%v \n", len(mnemonics), mnemonics)
 	mnemonics = removeDuplicates(mnemonics)
