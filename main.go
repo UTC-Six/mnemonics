@@ -71,12 +71,19 @@ func gen30Words() []string {
 	fmt.Printf("一共生成的助记词数量 %d, 分别是:%v \n", len(words), words)
 
 	// 去重
-	words = removeDuplicates(words)
+	words = RemoveDuplicates(words)
 	// 取前 30 个
 	return words[:30]
 }
 
-func removeDuplicates(strs []string) []string {
+func testRemoveDuplicates() {
+	mnemonics := []string{"edge", "now", "blur", "luggage", "motor", "wire", "pistol", "camera", "pole", "piece", "genuine", "decorate", "happy", "liberty", "estate", "achieve", "motor", "pistol", "piece", "happy", "estate"}
+	fmt.Printf("remove 前 size=%d, mnemonics=%v \n", len(mnemonics), mnemonics)
+	mnemonics = RemoveDuplicates(mnemonics)
+	fmt.Printf("remove 后 size=%d, mnemonics=%v \n", len(mnemonics), mnemonics)
+}
+
+func RemoveDuplicates(strs []string) []string {
 	// Use a map to track seen strings.
 	seen := make(map[string]struct{}, 48)
 	var result []string
@@ -90,11 +97,4 @@ func removeDuplicates(strs []string) []string {
 	}
 	fmt.Printf("result 数量为：%d, result=%v \n", len(result), result)
 	return result
-}
-
-func testRemoveDuplicates() {
-	mnemonics := []string{"edge", "now", "blur", "luggage", "motor", "wire", "pistol", "camera", "pole", "piece", "genuine", "decorate", "happy", "liberty", "estate", "achieve", "motor", "pistol", "piece", "happy", "estate"}
-	fmt.Printf("remove 前 size=%d, mnemonics=%v \n", len(mnemonics), mnemonics)
-	mnemonics = removeDuplicates(mnemonics)
-	fmt.Printf("remove 后 size=%d, mnemonics=%v \n", len(mnemonics), mnemonics)
 }
